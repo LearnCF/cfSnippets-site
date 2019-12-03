@@ -1,0 +1,13 @@
+{
+    "dependencies":{
+        "coldbox":"^5.6.2+1021"
+    },
+    "installPaths":{
+        "coldbox":"coldbox/"
+    },
+    "location":"",
+    "name":"cfcheats",
+    "scripts":{},
+    "slug":"cfcheats",
+    "version":"0.0.1"
+}
