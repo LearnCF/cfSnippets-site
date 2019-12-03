@@ -1,9 +1,15 @@
 component {
 	function configure(){
 		coldbox = {
-			environments = {
-				development: "127.0.0.1,local.*"
-			}
+		};
+		environments = {
+			development : "127.*,local.*"
+		};
+		settings = {
+			cheatsheetPath : getSystemSetting("cheatsheet_path", "resources/cheatsheets"),
+			meta_author : getSystemSetting( "META_AUTHOR", "Michael Born" ),
+			meta_title : getSystemSetting( "META_TITLE", "CFML Cheatsheets" ),
+			meta_description : getSystemSetting( "META_DESCRIPTION", "CFML Cheatsheets" )
 		};
 	}
 

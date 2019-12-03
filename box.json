@@ -1,8 +1,10 @@
 {
     "dependencies":{
+        "cbmarkdown":"^3.2.0+27",
         "coldbox":"^5.6.2+1021"
     },
     "installPaths":{
+        "cbmarkdown":"modules/cbmarkdown/",
         "coldbox":"coldbox/"
     },
     "location":"",

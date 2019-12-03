@@ -2,11 +2,18 @@
  * Helper methods and interception stuff for API route handlers.
  */
 component {
-	function preProcess( event, rc, prc ){
+	function preHandler( event, rc, prc ){
 		prc.meta = {
 			title : "CFML Cheatsheets",
-			author: getSetting( "meta.author", "Michael Born" ),
-			description: getSetting("meta.description", "CFML Cheatsheets")
+			author: getSetting( "meta_author" ),
+			description: getSetting("meta_description" )
 		};
+	}
+
+	function renderPageNotFound( event, rc, prc ){
+		prc.meta.title = "Page Not Found";
+		prc.page.title = "Page Not Found";
+		prc.page.subtitle = "So sorry.";
+		event.setView( "Utilities/FourOhFour" );
 	}
 }

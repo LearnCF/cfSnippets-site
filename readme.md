@@ -1,14 +1,6 @@
-# Super Simple
+# cfCheats
 
-The simplest of all application templates
-
-## License
-Apache License, Version 2.0.
-
-## Important Links
-
-Source Code
-- https://github.com/coldbox-templates/supersimple
+A simple site for CFML cheatsheets. See the [cheatsheets repo](https://bitbucket.org/learncf/cfcheatsheets).
 
 ## Quick Installation
 
@@ -26,8 +18,3 @@ box server start
 ```
 
 And run the application.
-
----
- 
-###THE DAILY BREAD
- > "I am the way, and the truth, and the life; no one comes to the Father, but by me (JESUS)" Jn 14:1-12
