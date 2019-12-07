@@ -4,7 +4,8 @@
 	* index
 	*/
 	function index( event, rc, prc ){
-		prc.welcomeMessage = "Welcome to ColdBox!";
+		prc.page.title = "cfCheats";
+		prc.page.subtitle = "Simple, practical cheatsheets for CFML";
 		event.setView( "Main/index" );
 	}
 
