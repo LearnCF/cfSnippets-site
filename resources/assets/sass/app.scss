@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+/**
+ * Customize Bulma color theme
+ * @see https://coolors.co/cbe896-084887-f58a07-fffffc-f7f5fb
+ */
+$blue: #084887;
+$yellow: #f58a07;
+$white-ter: #f7f5fb;
+$primary: $blue;
+$secondary: $yellow;
+
+@import "../../../node_modules/bulma/bulma.sass";
+
+
+/**
+ * Override Highlight.js color theme to standardize with the website color theme.
+ */
+body .hljs {
+	background-color: $grey-lightest;
+	border: 1px solid $secondary;
+}
+
+/**
+ * stupid link tag color fixes
+ */
+.has-text-light a,
+.has-text-light strong {
+	color: inherit;
+}
+
+/**
+ * Navbar tweaks
+ */
+.buttons iframe {
+	margin-bottom: .5rem;
+}

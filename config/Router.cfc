@@ -8,7 +8,7 @@ component {
 		// Turn on Full URL Rewrites, no index.cfm in the URL
 		setFullRewrites( true );
 
-		route( "/:section/:sheet" ).to( "cheats.show" );
+		route( "/cheats/:sheet" ).to( "cheats.show" );
 
 		// Routing by Convention
 		// route( "/:handler/:action?" ).end();

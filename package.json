@@ -1,0 +1,17 @@
+{
+  "name": "cfcheatsheets",
+  "version": "0.0.1",
+  "description": "A simple site for CFML cheatsheets. See the [cheatsheets repo](https://bitbucket.org/learncf/cfcheatsheets).",
+  "main": "resources/assets/sass/app.scss",
+  "scripts": {
+    "css-build": "node-sass --omit-source-map-url resources/assets/sass/app.scss dist/css/app.css",
+    "css-watch": "npm run css-build -- --watch",
+    "start": "npm run css-watch"
+  },
+  "author": "Michael Born",
+  "homepage": "https://bitbucket.org/learncf/cfcheats#readme",
+  "devDependencies": {
+    "bulma": "^0.8.0",
+    "node-sass": "^4.13.0"
+  }
+}
