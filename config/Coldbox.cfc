@@ -1,7 +1,7 @@
 component {
 	function configure(){
 		coldbox = {
-			// allow Coldbox to introspect handlers in order to cache events if `cached=true` is set on event function in handler cfc.
+			// allow Coldbox to introspect event handlers to look for caching annotations.
 			eventCaching : true,
 			// cache handlers as singletons. Try NOT to set this to true in development, and try NOT to set it to false in production.
 			handlerCaching : true,
@@ -12,7 +12,7 @@ component {
 			development : "127.*,local.*"
 		};
 		settings = {
-			cheatsheetPath : getSystemSetting("cheatsheet_path", "resources/cheatsheets"),
+			markdownPath : getSystemSetting("MARKDOWN_PATH", "resources/cheatsheets"),
 			meta_author : getSystemSetting( "META_AUTHOR", "Michael Born" ),
 			meta_title : getSystemSetting( "META_TITLE", "CFML Cheatsheets" ),
 			meta_description : getSystemSetting( "META_DESCRIPTION", "CFML Cheatsheets" )

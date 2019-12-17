@@ -23,23 +23,23 @@
         </a>
 
         <div class="navbar-dropdown">
-          <a class="navbar-item" href="/cheats/datasources">
+          <a class="navbar-item" href="/datasources">
             Datasources
           </a>
-          <a class="navbar-item" href="/cheats/queryexecute">
+          <a class="navbar-item" href="/queryexecute">
             Using QueryExecute()
           </a>
         </div>
       </div>
+      <a class="navbar-item" href="/contribute">
+        Contribute
+      </a>
     </div>
 
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
           <iframe src="https://ghbtns.com/github-btn.html?user=learncf&repo=cfcheats&type=star&count=true&size=large" frameborder="0" scrolling="0" width="120px" height="30px"></iframe>
-          <a class="button is-warning is-small" href="https://github.com/LearnCF/cfcheats/blob/master/CONTRIBUTE.md">
-            <strong>Contribute</strong>
-          </a>
         </div>
       </div>
     </div>
