@@ -1,11 +1,12 @@
 component {
 
 	void function postModuleLoad( event, interceptData ){
+		getESClient().deleteIndex( "content" );
 		if ( !getESClient().indexExists( "content" ) ){
 			createIndex();
 		}
 		// TODO: Make a "reloadData=1" URL parameter so this expensive ES indexing doesn't happen on reinit all the time.
-		if ( false ){
+		if ( true ){
 			populateIndex( getDataFiles() );
 		}
 	}

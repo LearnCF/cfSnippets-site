@@ -10,7 +10,7 @@ component {
 		interceptors = [{
 			class = "modules_app.jStore.interceptors.InitMappings",
 			properties	= {},
-			name			= "InitMappings@jStore"
+			name			= "InitMapxpings@jStore"
 		}];
 	}
 }
