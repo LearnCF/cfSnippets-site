@@ -7,15 +7,10 @@ component {
 	function configure(){
 		// Turn on Full URL Rewrites, no index.cfm in the URL
 		setFullRewrites( true );
-		
-		route( "/:page" )
-			.to( "page.show" );
 
-		route( "/" )
-			.rc("page", "readme")
-			.to( "page.show" );
+		route( "/tag/:tag" ).to( "main.tag" );
 
 		// Routing by Convention
-		// route( "/:handler/:action?" ).end();
+		route( "/:handler/:action?" ).end();
 	}
 }
