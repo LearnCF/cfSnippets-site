@@ -12,7 +12,7 @@ component {
 			development : "127.*,local.*"
 		};
 		settings = {
-			markdownPath : getSystemSetting("MARKDOWN_PATH", "resources/cheatsheets"),
+			contentPath : getSystemSetting("CONTENT_PATH", "resources/cheatsheets/data/en"),
 			meta_author : getSystemSetting( "META_AUTHOR", "Michael Born" ),
 			meta_title : getSystemSetting( "META_TITLE", "CFML Cheatsheets" ),
 			meta_description : getSystemSetting( "META_DESCRIPTION", "CFML Cheatsheets" )
