@@ -3,7 +3,7 @@
 		<p class="alert alert-info">No results found.</p>
 	<cfelse>
 		#renderView(
-			view = "Cheat",
+			view = "Main/Cheat",
 			collection = prc.cheats
 		)#
 	</cfif>

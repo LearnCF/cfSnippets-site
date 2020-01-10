@@ -23,10 +23,10 @@
         </a>
 
         <div class="navbar-dropdown">
-          <a class="navbar-item" href="/datasources">
+          <a class="navbar-item" href="/tag/datasources">
             Datasources
           </a>
-          <a class="navbar-item" href="/queryexecute">
+          <a class="navbar-item" href="/tag/queryexecute">
             Using QueryExecute()
           </a>
         </div>

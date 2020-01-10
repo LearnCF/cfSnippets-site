@@ -9,7 +9,7 @@ component extends="BaseHandler"{
 				index = "content",
 				type = "content"
 			)
-			.term( "tag", event.getValue( "tag", "" ) )
+			.match( "tags", event.getValue( "tag", "" ) )
 			.execute();
 		
 			prc.cheats = [];
