@@ -8,6 +8,9 @@ component {
 			author: getSetting( "meta_author" ),
 			description: getSetting("meta_description" )
 		};
+
+		// Make sure the search parameter exists
+		event.paramValue( "search", "" );
 	}
 
 	function renderPageNotFound( event, rc, prc ){
