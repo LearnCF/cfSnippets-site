@@ -9,14 +9,14 @@
 
 	#renderView( "Utilities/scripts" )#
 </head>
-<body class="has-background-light has-text-secondary">
+<body>
 
 	#renderView( "partials/nav" )#
 
 	#renderView( "partials/header" )#
 
 	<!---Container And Views --->
-	<div class="container section">#renderView()#</div>
+	<div class="container mx-auto">#renderView()#</div>
 
 	#renderView( "partials/footer" )#
 
