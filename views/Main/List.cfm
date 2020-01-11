@@ -6,5 +6,10 @@
 			view = "Main/Cheat",
 			collection = prc.cheats
 		)#
+
+		#renderView(
+			view = "partials/pagination",
+			args = prc.pagination
+		)#
 	</cfif>
 </cfoutput>

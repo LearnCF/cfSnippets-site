@@ -12,11 +12,21 @@ component extends="BaseHandler"{
 		event.paramValue( "tag", "" );
 		event.paramValue( "q", "" );
 
+		// pagination setup
+		cfparam( name="rc.s", default="1", type="integer" );
+		var maxRows = 20;
+		var startRow = int( rc.s );
+		if ( startRow < 0 ) {
+			startRow = 1;
+		}
+
 		var search  = getInstance( "SearchBuilder@cbElasticSearch" )
 			.new(
 				index = "content",
 				type = "content"
-			);
+			)
+			.setStartRow( startRow )
+			.setMaxRows( maxRows );
 
 			if ( event.getValue( "tag" ) > "" ){
 				search.match( "tags", event.getValue( "tag" ) );
@@ -26,10 +36,17 @@ component extends="BaseHandler"{
 				// just pull script cheats for now
 				search.match( "snippet.type", "script" );
 			}
-			search = search.execute();
+			searchResults = search.execute();
+
+			prc.pagination = {
+				start: startRow,
+				max: maxRows,
+				count: arrayLen( searchResults.getHits() ),
+				total: searchResults.getHitCount()
+			};
 		
 			prc.cheats = [];
-			search.getHits().each( function( item ){
+			searchResults.getHits().each( function( item ){
 				prc.cheats.append( item.getMemento() );
 			} );
 
