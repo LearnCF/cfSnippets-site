@@ -1,5 +1,5 @@
 <cfoutput>
-	<div class="-mt-8">
+	<div class="p-4 bg-white">
 		<cfif NOT ArrayLen( prc.cheats )>
 			<p class="alert alert-info">No results found.</p>
 		<cfelse>

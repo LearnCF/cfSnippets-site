@@ -6,7 +6,9 @@ component {
 			// cache handlers as singletons. Try NOT to set this to true in development, and try NOT to set it to false in production.
 			handlerCaching : true,
 			// enable Coldbox to cache a rendered view IF `cache=true` is passed to `renderView()`.
-			viewCaching : true
+			viewCaching : true,
+			// How to handle page not found requests?
+			onInvalidEventHandler = "main.renderPageNotFound"
 		};
 		environments = {
 			development : "127.*,local.*"

@@ -16,4 +16,8 @@ component {
 		prc.page.subtitle = "So sorry.";
 		event.setView( "Utilities/FourOhFour" );
 	}
+
+	function onInvalidHTTPMethod( event, rc, prc ){
+		// Handle bad HTTP method, like POST instead of GET.
+	}
 }
