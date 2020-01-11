@@ -12,14 +12,14 @@
   </div>
 
   <div id="navbarFull" class="flex justify-between flex-grow block w-full md:pl-4 md:flex md:items-center md:w-auto">
-    <div class="text-sm lg:flex-grow">
-          <a href="/tag/datasources" class="block mt-2 mr-2 text-green-100 md:inline-block lg:mt-0 hover:text-white">
+    <div class="text-sm md:flex-grow">
+          <a href="/tag/datasources" class="block mt-2 mr-2 text-green-100 md:inline-block md:mt-0 hover:text-white">
             Datasources
           </a>
-          <a href="/tag/queryexecute" class="block mt-2 mr-2 text-green-100 md:inline-block lg:mt-0 hover:text-white">
+          <a href="/tag/queryexecute" class="block mt-2 mr-2 text-green-100 md:inline-block md:mt-0 hover:text-white">
             Using QueryExecute()
           </a>
-          <a href="/contribute" class="block mt-2 mr-2 text-green-100 md:inline-block lg:mt-0 hover:text-white">
+          <a href="/contribute" class="block mt-2 mr-2 text-green-100 md:inline-block md:mt-0 hover:text-white">
             Contribute
           </a>
     </div>

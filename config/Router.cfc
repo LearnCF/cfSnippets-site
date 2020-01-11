@@ -8,7 +8,9 @@ component {
 		// Turn on Full URL Rewrites, no index.cfm in the URL
 		setFullRewrites( true );
 
-		route( "/tag/:tag" ).to( "main.tag" );
+		route( "/tag/:tag" ).to( "main.search" );
+
+		route( "/search" ).to( "main.search" );
 
 		// Routing by Convention
 		route( "/:handler/:action?" ).end();
