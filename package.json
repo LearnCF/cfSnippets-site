@@ -1,17 +1,12 @@
 {
-  "name": "cfcheatsheets",
-  "version": "0.0.1",
-  "description": "A simple site for CFML cheatsheets. See the [cheatsheets repo](https://bitbucket.org/learncf/cfcheatsheets).",
-  "main": "resources/assets/sass/app.scss",
+  "name": "cfSnippets-Site",
+  "version": "0.0.2",
+  "description": "A simple site for CFML example snippets and cheat sheets. See the [content repo](https://github.com/LearnCF/cfSnippets).",
+  "main": "",
   "scripts": {
-    "css-build": "node-sass --omit-source-map-url resources/assets/sass/app.scss dist/css/app.css",
-    "css-watch": "npm run css-build -- --watch",
-    "start": "npm run css-watch"
   },
-  "author": "Michael Born",
-  "homepage": "https://bitbucket.org/learncf/cfcheats#readme",
+  "author": "Michael Born <mike@learncf.dev>",
+  "homepage": "https://github.com/LearnCF/cfSnippets-site",
   "devDependencies": {
-    "bulma": "^0.8.0",
-    "node-sass": "^4.13.0"
   }
 }
