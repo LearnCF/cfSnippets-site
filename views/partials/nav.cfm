@@ -16,10 +16,6 @@
       <div class="md:flex-grow">
         #renderView( "partials/search")#
       </div>
-  
-      <div class="flex items-center flex-shrink-0">
-        <iframe src="https://ghbtns.com/github-btn.html?user=learncf&repo=cfcheats&type=star&count=true&size=large" frameborder="0" scrolling="0" width="120px" height="30px"></iframe>
-      </div>
     </div>
   </nav>
 </cfoutput>
