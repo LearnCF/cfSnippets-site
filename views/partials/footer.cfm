@@ -8,8 +8,8 @@
         <p class="my-4">
           <strong>cfSnippets</strong> is a LearnCF initiative intended to help new developers get started with CFML. cfSnippets is entirely open source - both the <a href="https://github.com/LearnCF/cfSnippets-site" class="underline text-green-900">website</a> and the <a href="https://github.com/LearnCF/cfSnippets" class="underline text-green-900">code snippets</a> - and I welcome contributions.
         </p>
-        <p class="my-4">If you <strong>really</strong> find this site helpful, perhaps consider <a href="https://www.buymeacoffee.com/learncf" class="underline text-green-900">buying me a coffee</a>.</p>
-        <p class="my-4">Enjoy! - <a href="https://michaelborn.me" class="underline italic text-green-900">Michael Born</a></p>
+        <p class="my-4">Enjoy!<br>- <a href="https://michaelborn.me" class="underline text-green-900">Michael Born</a></p>
+        <p class="my-4"><strong>PS.</strong> If you <strong>really</strong> find this site helpful, perhaps consider <a href="https://www.buymeacoffee.com/learncf" class="underline text-green-900">buying me a coffee</a>?</p>
       </div>
     </div>
   </div>
