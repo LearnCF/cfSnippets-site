@@ -40,7 +40,7 @@ component {
 		var path = getSetting( "contentPath" );
 		return directoryList(
 			path = expandPath( path ),
-			recurse = true,
+			recurse = false,
 			listInfo = "name",
 			filter = "*.json",
 			type = "file"

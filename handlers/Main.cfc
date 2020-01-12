@@ -52,29 +52,4 @@ component extends="BaseHandler"{
 
 			event.setView( "Main/Results" );
 		}
-
-		function junk(){
-			// var createdDate = now();
-			// writeDump( dateTimeFormat(createdDate, "HH:nn:ss XXX") );
-			// writeDump( dateTimeFormat(createdDate, "HH:nn:ss XXX", "America/Chicago") );
-
-
-			// // dumps the this scope, usually the executing component.
-			// writeDump( this ?: "that" );
-			// // dumps "that" because this1 is null and undefined.
-			// writeDump( this1 ?: "that" );
-
-			// var currentDateTime = now();
-			// // CF2016+ ONLY
-			// writeOutput( dateTimeFormat( currentDateTime, "iso" ) );
-			// // Lucee-ONLY
-			// // Outputs 2020-01-12T11:09:40-0500
-			// writeOutput( dateTimeFormat( currentDateTime, "iso8601" ) );
-
-			writeDump( fileExists( "/" ) );
-			writeDump( fileExists( "/myFile" ) );
-			writeDump( fileExists( expandPath( "README.md" ) ) );
-
-			abort;
-		}
 }

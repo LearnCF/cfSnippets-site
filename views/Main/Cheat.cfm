@@ -10,7 +10,7 @@
 			<cfif Cheat.snippet.type EQ "tag">
 				<cfset lang = "html" />
 			</cfif>
-			<pre class="h1js h1js-#lang# my-4"><code># Cheat.snippet.source #</code></pre>
+			<pre class="h1js h1js-#lang# my-4"><code class="p-4"># Cheat.snippet.source #</code></pre>
 		</cfif>
 <!---
 	Hide tag list for the moment.
