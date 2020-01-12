@@ -1,7 +1,4 @@
 component extends="BaseHandler"{
-	function index( event, rc, prc ){
-		// do summat!!
-	}
 	
 	/**
 	 * Search all cheatsheets!

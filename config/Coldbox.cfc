@@ -8,7 +8,9 @@ component {
 			// enable Coldbox to cache a rendered view IF `cache=true` is passed to `renderView()`.
 			viewCaching : true,
 			// How to handle page not found requests?
-			onInvalidEventHandler = "main.renderPageNotFound"
+			onInvalidEventHandler : "main.renderPageNotFound",
+			// The page to render if no other event is found. (e.g. Homepage!)
+			defaultEvent : "Main.search"
 		};
 		environments = {
 			development : "127.*,local.*"
