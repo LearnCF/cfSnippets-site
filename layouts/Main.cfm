@@ -11,8 +11,6 @@
 </head>
 <body>
 
-	#renderView( "partials/nav" )#
-
 	#renderView( "partials/header" )#
 
 	<!---Container And Views --->

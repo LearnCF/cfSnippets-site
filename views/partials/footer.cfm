@@ -1,4 +1,4 @@
-<footer class="p-6 text-gray-900 bg-gray-200 footer">
+<footer class="p-6 text-gray-900 bg-gray-200 footer border-t">
   <div class="container mx-auto text-sm">
     <div class="md:flex">
       <div class="w-1/3 p-4 flex items-center">
