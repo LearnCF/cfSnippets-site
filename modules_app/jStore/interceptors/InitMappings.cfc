@@ -23,7 +23,6 @@ component {
 						"title" = { "type" = "text" },
 						"tags" = { "type" = "keyword" },
 						"description" = { "type" = "text" },
-						"body" = { "type" = "text" },
 						"snippet" = {
 							"type" = "object",
 							"properties" = {

@@ -2,10 +2,7 @@
 	<article class="p-6 mb-10 shadow-lg border-2 border-green-100 cheat">
 		<h2 class="text-2xl font-bold tracking-wide text-gray-900">#encodeForHTML( Cheat.title )#</h2>
 		<cfif structKeyExists( Cheat, "description" ) && Len( Cheat.description ) GT 0>
-			<p class="my-4 text-gray-700">#encodeForHTML( Cheat.description )#</p>
-		</cfif>
-		<cfif structKeyExists( Cheat, "body" ) && Len( Cheat.body ) GT 0>
-			<p class="my-4">#encodeForHTML( Cheat.body )#</p>
+			<div class="my-4 text-gray-700">#Cheat.description#</div>
 		</cfif>
 		<cfif structKeyExists(Cheat.snippet, "source")
 			&& len( Cheat.snippet.source ) GT 0>
