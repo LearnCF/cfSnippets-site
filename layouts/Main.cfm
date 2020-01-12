@@ -15,8 +15,6 @@
 
 	#renderView( "partials/header" )#
 
-	#renderView( "partials/search" )#
-
 	<!---Container And Views --->
 	<div class="container p-4 mx-auto bg-white">#renderView()#</div>
 

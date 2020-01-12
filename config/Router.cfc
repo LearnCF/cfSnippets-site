@@ -8,6 +8,9 @@ component {
 		// Turn on Full URL Rewrites, no index.cfm in the URL
 		setFullRewrites( true );
 
+		// TODO: Enable these once I have a full listing of content
+		// for most functions and tags.
+		route( "/function/:tag" ).to( "main.search" );
 		route( "/tag/:tag" ).to( "main.search" );
 
 		route( "/search" ).to( "main.search" );

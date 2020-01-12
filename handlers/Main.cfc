@@ -50,6 +50,6 @@ component extends="BaseHandler"{
 				prc.cheats.append( item.getMemento() );
 			} );
 
-			event.setView( "Main/List" );
+			event.setView( "Main/Results" );
 		}
 }
