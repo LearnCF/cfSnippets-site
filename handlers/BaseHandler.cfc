@@ -4,13 +4,16 @@
 component {
 	function preHandler( event, rc, prc ){
 		prc.meta = {
-			title : "CFML Cheatsheets",
+			title : "CF Snippets",
 			author: getSetting( "meta_author" ),
 			description: getSetting("meta_description" )
 		};
 
-		// Make sure the search parameter exists
-		event.paramValue( "search", "" );
+		if ( event.getValue( "q", "" ) > "" ){
+			prc.meta.title &= " for '#event.getValue( "q" )#'";
+		} else if ( event.getValue( "tag", "" ) > "" ){
+			prc.meta.title = "#event.getValue( "tag" )# CF Snippets";
+		}
 	}
 
 	function renderPageNotFound( event, rc, prc ){

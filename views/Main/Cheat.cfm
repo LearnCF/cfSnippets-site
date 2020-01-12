@@ -14,7 +14,6 @@
 		</cfif>
 <!---
 	Hide tag list for the moment.
-			 --->
  		<cfif structKeyExists( Cheat, "tags" )>
 			<div class="py-2 cheat__footer">
 				<cfloop array="#Cheat.tags#" index="tag">
@@ -22,5 +21,6 @@
 				</cfloop>
 			</div>
 		</cfif>
+--->
 	</article>
 </cfoutput>

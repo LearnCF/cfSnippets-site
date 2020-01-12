@@ -10,11 +10,11 @@ component extends="BaseHandler"{
 		event.paramValue( "q", "" );
 
 		// pagination setup
-		cfparam( name="rc.s", default="1", type="integer" );
+		cfparam( name="rc.s", default="0", type="integer" );
 		var maxRows = 20;
 		var startRow = int( rc.s );
 		if ( startRow < 0 ) {
-			startRow = 1;
+			startRow = 0;
 		}
 
 		var search  = getInstance( "SearchBuilder@cbElasticSearch" )
@@ -69,7 +69,11 @@ component extends="BaseHandler"{
 			// writeOutput( dateTimeFormat( currentDateTime, "iso" ) );
 			// // Lucee-ONLY
 			// // Outputs 2020-01-12T11:09:40-0500
-			writeOutput( dateTimeFormat( currentDateTime, "iso8601" ) );
+			// writeOutput( dateTimeFormat( currentDateTime, "iso8601" ) );
+
+			writeDump( fileExists( "/" ) );
+			writeDump( fileExists( "/myFile" ) );
+			writeDump( fileExists( expandPath( "README.md" ) ) );
 
 			abort;
 		}
