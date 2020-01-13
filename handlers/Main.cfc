@@ -19,8 +19,8 @@ component extends="BaseHandler"{
 
 		var search  = getInstance( "SearchBuilder@cbElasticSearch" )
 			.new(
-				index = "content",
-				type = "content"
+				index = "snippets",
+				type = "_doc"
 			)
 			.setStartRow( startRow )
 			.setMaxRows( maxRows );

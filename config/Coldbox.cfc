@@ -21,6 +21,15 @@ component {
 			meta_title : getSystemSetting( "META_TITLE", "CFML Cheatsheets" ),
 			meta_description : getSystemSetting( "META_DESCRIPTION", "CFML Cheatsheets" )
 		};
+
+
+		// register the interceptor which runs on app start/reinit
+		// and sets up the ES index
+		interceptors = [{
+			class = "interceptors.InitIndex",
+			properties	= {},
+			name			= "InitIndex"
+		}];
 	}
 
 	/**

@@ -1,8 +1,11 @@
 component {
 
-	void function postModuleLoad( event, interceptData ){
-		getESClient().deleteIndex( "content" );
-		if ( !getESClient().indexExists( "content" ) ){
+	/**
+	 * After the config has loaded on first startup or reinit, I think.
+	 */
+	void function afterConfigurationLoad( event, interceptData ){
+		getESClient().deleteIndex( "snippets" );
+		if ( !getESClient().indexExists( "snippets" ) ){
 			createIndex();
 		}
 		// TODO: Make a "reloadData=1" URL parameter so this expensive ES indexing doesn't happen on reinit all the time.
@@ -11,13 +14,13 @@ component {
 		}
 	}
 	/**
-	 * Creates the content index
+	 * Creates the snippets index
 	 */
 	private function createIndex(){
 		getIndexBuilder().new(
-			"content",
+			"snippets",
 			{
-				"content" = {
+				"_doc" = {
 					"_all" = { "enabled" = false },
 					"properties" = {
 						"title" = { "type" = "text" },
@@ -55,8 +58,8 @@ component {
 				if ( isJSON( data ) ){
 					var result = getDocument()
 					.new(
-						index = "content",
-						type = "content",
+						index = "snippets",
+						type = "_doc",
 						properties = deSerializeJSON( data )
 					)
 					.save();

@@ -5,7 +5,7 @@
         <span class="">CF Snippets</span>
 			</a>
 		</div>
-      <div class="w-1/2 p-4">
+      <div class="md:w-1/2 p-4">
         #renderView( "partials/search")#
       </div>
     </div>

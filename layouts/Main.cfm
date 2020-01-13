@@ -14,7 +14,7 @@
 	#renderView( "partials/header" )#
 
 	<!---Container And Views --->
-	<div class="container p-4 mx-auto bg-white">#renderView()#</div>
+	<div class="container py-10 mx-auto bg-white">#renderView()#</div>
 
 	#renderView( "partials/footer" )#
 
