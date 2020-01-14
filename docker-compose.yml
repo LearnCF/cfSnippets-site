@@ -6,7 +6,7 @@ services:
     environment:
       http.host: "0.0.0.0"
       discovery.type: single-node
-    # restart: always
+    restart: always
     ports:
     - "9200:9200"
     - "9300:9300"
@@ -16,7 +16,7 @@ services:
       - elasticsearch
     depends_on:
       - elasticsearch
-    # restart: always
+    restart: always
     environment:
       PORT: 8080
       SSL_PORT: 8443
