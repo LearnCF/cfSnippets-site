@@ -9,6 +9,8 @@ component {
 			viewCaching : true,
 			// How to handle page not found requests?
 			onInvalidEventHandler : "main.renderPageNotFound",
+			// For production, don't reload handler changes for each request.
+			handlersIndexAutoReload : false,
 			// The page to render if no other event is found. (e.g. Homepage!)
 			defaultEvent : "Main.search"
 		};
@@ -70,6 +72,12 @@ component {
 		coldbox.handlerCaching = false;
 		coldbox.handlersIndexAutoReload = true;
 		coldbox.customErrorTemplate = "/coldbox/system/includes/BugReport.cfm";
+	}
+
+	function production(){
+		// just for kicks, even though I know ColdBox does this by default.
+		// Nice to have added security. :)
+		coldbox.reinitPassword = createUUID();
 	}
 
 }
