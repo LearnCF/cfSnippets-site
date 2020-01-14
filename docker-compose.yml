@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  elasticsearch:
+    image: elasticsearch:7.5.1
+    environment:
+      http.host: "0.0.0.0"
+      discovery.type: single-node
+    # restart: always
+    ports:
+    - "9200:9200"
+    - "9300:9300"
+  app:
+    image: ortussolutions/commandbox:lucee5-alpine-snapshot
+    links:
+      - elasticsearch
+    depends_on:
+      - elasticsearch
+    # restart: always
+    environment:
+      PORT: 8080
+      SSL_PORT: 8443
+      ES_HOST: elasticsearch
+      ES_PORT: 9200
+    ports:
+      - "8080:8080"
+      - "8443:8443"
+    volumes:
+      - .:/app
+    expose:
+      - "8080"
+      - "8443"
