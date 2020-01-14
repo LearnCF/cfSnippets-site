@@ -18,15 +18,17 @@ services:
       - elasticsearch
     restart: always
     environment:
+      BOX_INSTALL: "true"
       PORT: 8081
       SSL_PORT: 8843
-      ES_HOST: elasticsearch
+      ES_HOST: "elasticsearch"
       ES_PORT: 9200
     ports:
       - "8081:8081"
-      - "8843:8843"
+      - "8091:8009"
     volumes:
       - .:/app
     expose:
       - "8081"
+      - "8091"
       - "8843"
