@@ -6,29 +6,24 @@ services:
     environment:
       http.host: "0.0.0.0"
       discovery.type: single-node
+      ES_JAVA_OPTS: "-Xms256m -Xmx512m"
     restart: always
     ports:
     - "9200:9200"
     - "9300:9300"
   app:
     image: ortussolutions/commandbox:lucee5-alpine-snapshot
-    links:
-      - elasticsearch
     depends_on:
       - elasticsearch
     restart: always
     environment:
       BOX_INSTALL: "true"
-      PORT: 8081
-      SSL_PORT: 8843
+      PORT: 8080
+      SSL_PORT: 8443
       ES_HOST: "elasticsearch"
       ES_PORT: 9200
-    ports:
-      - "8081:8081"
-      - "8091:8009"
+    expose:
+      - "8080"
+      - "8443"
     volumes:
       - .:/app
-    expose:
-      - "8081"
-      - "8091"
-      - "8843"
