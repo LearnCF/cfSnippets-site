@@ -14,9 +14,12 @@ tests/results/**
 npm-debug.log
 yarn-error.log
 
-## Ignored Dependencies
+# Ignored Dependencies
 cfSnippets
 coldbox
 testbox
 modules
 **/apidocs/**
+
+# Ignore compiled assets, we can do that in prod.
+dist/**

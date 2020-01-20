@@ -10,21 +10,10 @@ This website runs using the following stack:
 
 ## Quick Installation
 
-Each application templates contains a `box.json` so it can leverage [CommandBox](http://www.ortussolutions.com/products/commandbox) for its dependencies.  
-
-Just go into each template directory and type:
-
-```
-box install
-```
-
-This will setup all the needed dependencies for each application template.  You can then type:
-
-```
-box server start
-```
-
-And run the application.
+1. Clone this repo to your local machine: `git clone learncf/cfsnippets-site`
+2. Install project dependencies: `box install`
+3. Start up an ElasticSearch instance with Docker, making sure to point at the install cfsnippets content repository: `docker run -d -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.5.1`
+4. Start the application: `box server start`
 
 ## The Good News
 

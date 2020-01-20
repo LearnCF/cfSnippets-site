@@ -4,9 +4,19 @@
   "description": "A simple site for CFML example snippets and cheat sheets. See the [content repo](https://github.com/LearnCF/cfSnippets).",
   "main": "",
   "scripts": {
+    "build:css": "postcss resources/assets/css/tailwind.css -o dist/css/app.css",
+    "watch": "watch 'npm run build:css' ./views ./layouts"
   },
   "author": "Michael Born <mike@learncf.dev>",
   "homepage": "https://github.com/LearnCF/cfSnippets-site",
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.0.4"
+  },
+  "dependencies": {
+    "autoprefixer": "^9.7.4",
+    "cssnano": "^4.1.10",
+    "postcss-cli": "^7.1.0",
+    "tailwindcss": "^1.1.4",
+    "watch": "^1.0.2"
   }
 }

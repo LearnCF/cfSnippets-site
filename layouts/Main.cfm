@@ -8,6 +8,7 @@
 	<meta name="author" content="#prc.meta.author#">
 
 	#renderView( "Utilities/scripts" )#
+	#renderView( "Utilities/stylesheets" )#
 </head>
 <body>
 
@@ -17,9 +18,6 @@
 	<div class="container py-10 mx-auto bg-white">#renderView()#</div>
 
 	#renderView( "partials/footer" )#
-
-	<!--- Duh, scripts --->
-	#renderView( "Utilities/stylesheets" )#
 </body>
 </html>
 </cfoutput>
