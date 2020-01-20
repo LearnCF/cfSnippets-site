@@ -1,0 +1,3 @@
+# ignore certbot stuff- we DO NOT want to publish ssl keys to github!
+# Besides, the ./init-letsencrypt.sh file will spin everything up anyway.
+certbot/conf
