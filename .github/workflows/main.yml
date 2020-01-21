@@ -18,4 +18,5 @@ jobs:
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
         passphrase: ${{ secrets.PASSPHRASE }}
-        script: cd $APP_DIR && echo `pwd`
+        envs: APP_DIR
+        script: cd $APP_DIR && git checkout master && git pull && docker-compose restart app
