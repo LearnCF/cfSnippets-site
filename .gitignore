@@ -4,6 +4,7 @@ settings.xml
 WEB-INF
 .env
 .vscode
+.cache
 
 # logs + tests
 logs/**
@@ -20,7 +21,3 @@ coldbox
 testbox
 modules
 **/apidocs/**
-
-# Ignore compiled assets, we can do that in prod.
-dist/**
-.cache
