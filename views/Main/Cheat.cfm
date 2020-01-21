@@ -1,9 +1,9 @@
 <cfoutput>
-	<article class="mb-10 shadow-lg border-2 border-blue-900 cheat rounded-lg">
+	<article class="mb-10 border-2 border-purple-900 rounded-lg shadow-lg cheat">
 			<div class="px-6 py-8">
 				<h2 class="text-2xl font-bold tracking-wide text-gray-900">#encodeForHTML( Cheat.title )#</h2>
 				<cfif structKeyExists( Cheat, "description" ) && Len( Cheat.description ) GT 0>
-					<div class="text-gray-700 mt-4">#Cheat.description#</div>
+					<div class="mt-4 text-gray-700">#Cheat.description#</div>
 				</cfif>
 				<cfif structKeyExists(Cheat.snippet, "source")
 					&& len( Cheat.snippet.source ) GT 0>

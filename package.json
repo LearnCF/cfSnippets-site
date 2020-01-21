@@ -5,7 +5,9 @@
   "main": "",
   "scripts": {
     "build:css": "postcss resources/assets/css/tailwind.css -o dist/css/app.css",
-    "watch": "watch 'npm run build:css' ./views ./layouts"
+    "build:js": "parcel build resources/assets/js/app.js --out-dir resources/dist/js/",
+    "watch:css": "watch 'npm run build:css' ./views ./layouts",
+    "watch:js": "parcel watch resources/assets/js/app.js --out-dir resources/dist/js/"
   },
   "author": "Michael Born <mike@learncf.dev>",
   "homepage": "https://github.com/LearnCF/cfSnippets-site",
@@ -15,6 +17,7 @@
   "dependencies": {
     "autoprefixer": "^9.7.4",
     "cssnano": "^4.1.10",
+    "highlight.js": "^9.18.0",
     "postcss-cli": "^7.1.0",
     "tailwindcss": "^1.1.4",
     "watch": "^1.0.2"
