@@ -4,7 +4,7 @@
   "description": "A simple site for CFML example snippets and cheat sheets. See the [content repo](https://github.com/LearnCF/cfSnippets).",
   "main": "",
   "scripts": {
-    "build:css": "postcss resources/assets/css/tailwind.css -o dist/css/app.css",
+    "build:css": "postcss resources/assets/css/tailwind.css -o resources/dist/css/app.css",
     "build:js": "parcel build resources/assets/js/app.js --out-dir resources/dist/js/",
     "watch:css": "watch 'npm run build:css' ./views ./layouts",
     "watch:js": "parcel watch resources/assets/js/app.js --out-dir resources/dist/js/"
