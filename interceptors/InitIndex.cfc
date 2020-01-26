@@ -39,7 +39,11 @@ component {
 		).save();
 	}
 
-	private array function getDataFiles(){
+	/**
+	 * Pull the snippet JSON files from the cfsnippets data repository.
+	 * @returns {Array} array of file names ONLY, to be paired with the content directory for fileRead() calls.
+	 */
+	array function getDataFiles(){
 		var path = getSetting( "contentPath" );
 		return directoryList(
 			path = expandPath( path ),
@@ -50,19 +54,13 @@ component {
 		);
 	}
 
-	private function populateIndex( required array files ){
+	function populateIndex( required array files ){
 		files.each( function( filename ) {
 			var filepath = expandPath( getSetting( "contentPath" ) ) & "/" & filename;
 			if ( fileExists( filepath ) ){
 				var data = fileRead( filepath );
 				if ( isJSON( data ) ){
-					var result = getDocument()
-					.new(
-						index = "snippets",
-						type = "_doc",
-						properties = deSerializeJSON( data )
-					)
-					.save();
+					saveNewESDocument( deSerializeJSON( data ) );
 				}
 			}
 		} );
@@ -71,6 +69,25 @@ component {
 		// TODO: Get it working by removing whitespace from the JSON data first
 		// @cite https://stackoverflow.com/a/48131671
 		// getESClient().saveAll( documents );
+	}
+		
+	/**
+	 * Save a given data object to a new document in ES.
+	 *
+	 * @data {Struct} the data object after derializing from JSON to struct.
+	 */
+	private function saveNewESDocument(
+		required struct data,
+		string index = "snippets",
+		string type = "_doc"
+	){
+		var result = getDocument()
+		.new(
+			index = arguments.index,
+			type = arguments.type,
+			properties = arguments.data
+		)
+		.save();
 	}
 
 	Client function getESClient() provider="Client@cbElasticsearch"{}

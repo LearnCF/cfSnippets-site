@@ -35,22 +35,31 @@ component extends="coldbox.system.testing.BaseTestCase" appMapping="/"{
 	
 	function run(){
 
-		describe( "Main Suite", function(){
+		describe( "Search Page", function(){
 
 			beforeEach(function( currentSpec ){
 				// Setup as a new ColdBox request for this suite, VERY IMPORTANT. ELSE EVERYTHING LOOKS LIKE THE SAME REQUEST.
 				setup();
 			});
 
-			it( "+Home page renders search results", function(){
+			it( "+Renders search results for home page", function(){
 				var event = execute( route = "/", renderResults=true );
 				expect(	event.getValue( name="cheats", private=true ) ).toBeArray( "should be array of snippets" );
 				expect(	event.getValue( name="cheats", private=true ).len() ).toBeGT( 0, "should be array of snippets" );
 			});
 
-			it( "+Search page returns results", function(){
+			it( "+Returns results by keyword search", function(){
 				var event = execute(
-					route = "/search?q=array",
+					route = "/search?q=fileExists",
+					renderResults=true
+				);
+				expect(	event.getValue( name="cheats", private=true ) ).toBeArray( "should be array of snippets" );
+				expect(	event.getValue( name="cheats", private=true ).len() ).toBeGT( 0, "should be array of snippets" );
+			});
+
+			it( "+Returns results by cheatsheet search", function(){
+				var event = execute(
+					route = "/cheatsheet/error-handling",
 					renderResults=true
 				);
 				expect(	event.getValue( name="cheats", private=true ) ).toBeArray( "should be array of snippets" );

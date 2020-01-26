@@ -14,6 +14,7 @@ component {
 		route( "/tag/:tag" ).to( "main.search" );
 
 		route( "/search" ).to( "main.search" );
+		route( "/cheatsheet/:cheatsheet" ).to( "main.search" );
 
 		// Routing by Convention
 		route( "/:handler/:action?" ).end();

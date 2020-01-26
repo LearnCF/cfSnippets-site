@@ -1,15 +1,18 @@
 component extends="BaseHandler"{
 	
 	/**
-	 * Search all cheatsheets!
+	 * Search all snippets!
 	 * We can search by tag: /search?tag=queryexecute
-	 * or by function name or tag name: /search?q=directoryList
+	 * or by title/description/source: /search?q=directoryList
+	 * 
+	 * Or even by cheatsheet! /category/testbox
 	 */
 	function search( event, rc, prc ) cache="true" cacheTimeout="30" {
 		event.paramValue( "tag", "" );
 		event.paramValue( "q", "" );
+		event.paramValue( "cheatsheet", "" );
 
-		// pagination setup
+		// pagination - param and sanitize start row.
 		cfparam( name="rc.s", default="0", type="integer" );
 		var maxRows = 20;
 		var startRow = int( rc.s );
@@ -27,6 +30,8 @@ component extends="BaseHandler"{
 
 			if ( event.getValue( "tag" ) > "" ){
 				search.match( "tags", event.getValue( "tag" ) );
+			} else if ( event.getValue( "cheatsheet" ) > "" ){
+				search.match( "cheatsheets", event.getValue( "cheatsheet" ) );
 			} else if ( event.getValue( "q" ) > "" ) {
 				search.multiMatch(
 					names = [ "title", "description", "snippet.source", "tags" ],
