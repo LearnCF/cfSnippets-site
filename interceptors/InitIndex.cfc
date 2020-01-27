@@ -6,17 +6,32 @@ component {
 	void function afterConfigurationLoad( event, interceptData ){
 		getESClient().deleteIndex( "snippets" );
 		if ( !getESClient().indexExists( "snippets" ) ){
-			createIndex();
+			createSnippetIndex();
+		}
+		if ( !getESClient().indexExists( "cheatsheets" ) ){
+			createCheatSheetIndex();
 		}
 		// TODO: Make a "reloadData=1" URL parameter so this expensive ES indexing doesn't happen on reinit all the time.
 		if ( true ){
-			populateIndex( getDataFiles() );
+			var snippetPath = getSetting( "contentPath" ) & "/snippets/";
+			populateIndex(
+				files = getDataFiles( path = snippetPath ),
+				path = snippetPath,
+				index = "snippets"
+			);
+			var cheatsheetPath = getSetting( "contentPath" ) & "/cheatsheets/";
+			populateIndex(
+				files = getDataFiles( path = cheatsheetPath ),
+				path = cheatsheetPath,
+				index = "cheatsheets"
+			);
 		}
 	}
+
 	/**
 	 * Creates the snippets index
 	 */
-	private function createIndex(){
+	private function createSnippetIndex(){
 		getIndexBuilder().new(
 			"snippets",
 			{
@@ -24,7 +39,7 @@ component {
 					"_all" = { "enabled" = false },
 					"properties" = {
 						"title" = { "type" = "text" },
-						"tags" = { "type" = "keyword" },
+						"cheatsheets" = { "type" = "keyword" },
 						"description" = { "type" = "text" },
 						"snippet" = {
 							"type" = "object",
@@ -40,13 +55,31 @@ component {
 	}
 
 	/**
+	 * Creates the cheatsheets index
+	 */
+	private function createCheatSheetIndex(){
+		getIndexBuilder().new(
+			"cheatsheets",
+			{
+				"_doc" = {
+					"_all" = { "enabled" = false },
+					"properties" = {
+						"slug" = { "type" = "keyword" },
+						"title" = { "type" = "text" },
+						"description" = { "type" = "text" }
+					}
+				}
+			}
+		).save();
+	}
+
+	/**
 	 * Pull the snippet JSON files from the cfsnippets data repository.
 	 * @returns {Array} array of file names ONLY, to be paired with the content directory for fileRead() calls.
 	 */
-	array function getDataFiles(){
-		var path = getSetting( "contentPath" );
+	array function getDataFiles( required string path ){
 		return directoryList(
-			path = expandPath( path ),
+			path = expandPath( arguments.path ),
 			recurse = false,
 			listInfo = "name",
 			filter = "*.json",
@@ -54,13 +87,22 @@ component {
 		);
 	}
 
-	function populateIndex( required array files ){
+	function populateIndex(
+		required string path,
+		required array files,
+		string index = "snippets"
+	){
 		files.each( function( filename ) {
-			var filepath = expandPath( getSetting( "contentPath" ) ) & "/" & filename;
+			var filepath = expandPath( path ) & filename;
 			if ( fileExists( filepath ) ){
 				var data = fileRead( filepath );
 				if ( isJSON( data ) ){
-					saveNewESDocument( deSerializeJSON( data ) );
+					var esData = deSerializeJSON( data );
+					esData[ "slug" ] = replace(filename, ".json", "");
+					saveNewESDocument(
+						data = esData,
+						index = index
+					);
 				}
 			}
 		} );

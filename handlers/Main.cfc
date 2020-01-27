@@ -24,15 +24,15 @@ component extends="BaseHandler"{
 			.setStartRow( startRow )
 			.setMaxRows( maxRows );
 
-			if ( event.getValue( "tag" ) > "" ){
+			if ( rc.tag > "" ){
 				search = search.getByTag( event.getValue( "tag" ) );
-			} else if ( event.getValue( "cheatsheet" ) > "" ){
-				search = search.getByCheatsheet( event.getValue( "cheatsheet" ) );
-			} else if ( event.getValue( "q" ) > "" ) {
-				search = search.getByQuery( event.getValue( "q" ) );
+			} else if ( rc.cheatsheet > "" ){
+				search = search.getByCheatsheet( rc.cheatsheet );
+			} else if ( rc.q > "" ) {
+				search = search.getByQuery( rc.q );
 			} else {
 				// query for just script stuff
-				search = search.getByQuery( event.getValue( "if" ) );
+				search = search.getByQuery( "script" );
 			}
 
 			prc.pagination = search.getPaging();

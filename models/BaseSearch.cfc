@@ -7,7 +7,7 @@ component accessors="true"{
 	property name="SearchBuilder" inject="SearchBuilder@cbElasticSearch";
 
 	// search results
-  property name="results" type="array";
+  property name="hits" type="array";
 	property name="paging" type="struct";
 	
 	// pagination

@@ -49,11 +49,11 @@ component extends="BaseSearch" {
 				index = variables.index,
 				type = variables.type
 			)
-      search.multiMatch(
+      .multiMatch(
         names = [ "title", "description", "snippet.source", "tags" ],
         value = arguments.query
       )
-      .execute()
+			.execute();
       return normalizeSearchResult( search );
 	}
 }

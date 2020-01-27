@@ -16,7 +16,7 @@ component extends="BaseSearch" {
 	 * @returns this component containing the "normalized" result - e.g. call getHits(), getPaging(), etc.
 	 */
 	public component function getBySlug( required string slug ){
-		var search = variables.SearchBuilder.new(
+		var search = getSearchBuilder().new(
 				index = getIndex(),
 				type = getType()
 			)

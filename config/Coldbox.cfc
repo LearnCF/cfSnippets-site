@@ -78,6 +78,7 @@ component {
 		// just for kicks, even though I know ColdBox does this by default.
 		// Nice to have added security. :)
 		coldbox.reinitPassword = createUUID();
+		coldbox.customErrorTemplate = "/coldbox/system/includes/BugReport.cfm";
 	}
 
 }
