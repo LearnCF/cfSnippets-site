@@ -12,12 +12,13 @@
 </head>
 <body>
 
-	#renderView( "partials/header" )#
+	#renderView( "partials/_nav" )#
+	#renderView( "partials/_header" )#
 
 	<!---Container And Views --->
 	<div class="container py-10 mx-auto bg-white">#renderView()#</div>
 
-	#renderView( "partials/footer" )#
+	#renderView( "partials/_footer" )#
 </body>
 </html>
 </cfoutput>

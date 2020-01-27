@@ -34,7 +34,7 @@ component {
 		prc.exception = arguments.exception;
 
 		// log via the log variable already prepared by ColdBox
-		log.error( "Exception when executing #arguments.faultAction# #arguments.exception.messages#", arguments.exception );
+		log.error( "Exception when executing #arguments.faultAction# #arguments.exception.message#", arguments.exception );
 
 		event.setView( "Utilities/Error" );
 

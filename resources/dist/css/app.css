@@ -462,6 +462,10 @@ img {
   background-color: #edf2f7;
 }
 
+.bg-red-100 {
+  background-color: #fff5f5;
+}
+
 .bg-green-500 {
   background-color: #48bb78;
 }
@@ -484,6 +488,10 @@ img {
 
 .hover\:bg-green-500:hover {
   background-color: #48bb78;
+}
+
+.border-red-500 {
+  border-color: #f56565;
 }
 
 .border-green-500 {
@@ -694,6 +702,10 @@ img {
 
 .text-gray-900 {
   color: #1a202c;
+}
+
+.text-red-500 {
+  color: #f56565;
 }
 
 .text-green-500 {

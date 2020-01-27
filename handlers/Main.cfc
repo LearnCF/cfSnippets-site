@@ -20,40 +20,23 @@ component extends="BaseHandler"{
 			startRow = 0;
 		}
 
-		var search  = getInstance( "SearchBuilder@cbElasticSearch" )
-			.new(
-				index = "snippets",
-				type = "_doc"
-			)
+		var search  = getInstance( "Snippets" )
 			.setStartRow( startRow )
 			.setMaxRows( maxRows );
 
 			if ( event.getValue( "tag" ) > "" ){
-				search.match( "tags", event.getValue( "tag" ) );
+				search = search.getByTag( event.getValue( "tag" ) );
 			} else if ( event.getValue( "cheatsheet" ) > "" ){
-				search.match( "cheatsheets", event.getValue( "cheatsheet" ) );
+				search = search.getByCheatsheet( event.getValue( "cheatsheet" ) );
 			} else if ( event.getValue( "q" ) > "" ) {
-				search.multiMatch(
-					names = [ "title", "description", "snippet.source", "tags" ],
-					value = event.getValue( "q" )
-				);
+				search = search.getByQuery( event.getValue( "q" ) );
 			} else {
-				// just pull script cheats for now
-				search.match( "snippet.type", "script" );
+				// query for just script stuff
+				search = search.getByQuery( event.getValue( "if" ) );
 			}
-			searchResults = search.execute();
 
-			prc.pagination = {
-				start: startRow,
-				max: maxRows,
-				count: arrayLen( searchResults.getHits() ),
-				total: searchResults.getHitCount()
-			};
-		
-			prc.cheats = [];
-			searchResults.getHits().each( function( item ){
-				prc.cheats.append( item.getMemento() );
-			} );
+			prc.pagination = search.getPaging();
+			prc.snippets = search.getHits();
 
 			event.setView( "Main/Results" );
 		}
