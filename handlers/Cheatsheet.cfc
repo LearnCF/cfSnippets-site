@@ -3,32 +3,31 @@
 */
 component extends="BaseHandler" {
 	// list all cheatsheets?
-	function index(){
+	function index( event, rc, prc ){
 	}
 
 	/**
 	 * View a single cheatsheet with all snippets
 	 */
-	function view(){
+	function view( event, rc, prc ){
 		event.paramValue( "cheatsheet", "" );
 
 		var hits = getInstance( "Cheatsheets" )
-			.getBySlug( event.getValue( "cheatsheet" ) )
+			.getById( event.getValue( "cheatsheet" ) )
 			.getHits();
 
 		if ( arrayLen( hits ) ){
-			prc.cheatsheet = hits.first();
+			prc.page = hits.first();
 
 			var snippetSearch = getInstance( "Snippets" )
-				.getByCheatsheet( event.getValue( "cheatsheet" ) )
-				.getHits();
+				.getByCheatsheet( event.getValue( "cheatsheet" ) );
 
 			prc.snippets = snippetSearch.getHits();
 			prc.pagination = snippetSearch.getPaging();
 		} else {
-			prc.cheatsheet = {};
+			renderPageNotFound(
+				argumentCollection = arguments
+			);
 		}
-
-		renderView( "Cheatsheet/view" );
 	}
 }

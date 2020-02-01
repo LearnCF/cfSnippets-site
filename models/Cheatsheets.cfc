@@ -4,23 +4,22 @@
  * To retrieve hits, call getHits() - will return array of hits.
  * To retrieve pagination details, call getPaging() - will return pagination struct.
  */
-component extends="BaseSearch" {
+component extends="BaseSearch"{
 
   property name="index" default="cheatsheets";
   property name="type" default="_doc";
 
 	/**
-	 * Search for cheatsheets by slug.
-	 * Slug is a unique field, so this should only return a single item.
+	 * Retrieve a single cheatsheet by document id.
 	 * 
 	 * @returns this component containing the "normalized" result - e.g. call getHits(), getPaging(), etc.
 	 */
-	public component function getBySlug( required string slug ){
+	public component function getById( required string id ){
 		var search = getSearchBuilder().new(
-				index = getIndex(),
-				type = getType()
+				index = variables.index,
+				type = variables.type
 			)
-			.match( "slug", arguments.slug )
+			.match( "_id", arguments.id )
 			.execute();
 		return normalizeSearchResult( search );
 	}

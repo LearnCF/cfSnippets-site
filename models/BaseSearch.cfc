@@ -1,7 +1,7 @@
 /**
  * Provides a base for models extending the ES search documents.
 */
-component accessors="true"{
+component accessors="true" mappedSuperClass="true"{
 	
 	// Properties
 	property name="SearchBuilder" inject="SearchBuilder@cbElasticSearch";
@@ -19,7 +19,7 @@ component accessors="true"{
 	 */
   public function init(){
     return this;
-  }
+	}
 
   package component function normalizeSearchResult( required component search ){
 		

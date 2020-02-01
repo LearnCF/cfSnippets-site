@@ -1,5 +1,5 @@
 <cfoutput>
-	<article class="mb-10 border-2 border-purple-900 rounded-lg shadow-lg snippet">
+	<article class="mb-10 bg-white border-2 border-purple-900 rounded-lg shadow-lg snippet">
 			<div class="px-6 py-8">
 				<h2 class="text-2xl font-bold tracking-wide text-gray-900">#encodeForHTML( snippet.title )#</h2>
 				<cfif structKeyExists( snippet, "description" ) && Len( snippet.description ) GT 0>

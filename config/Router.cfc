@@ -10,8 +10,8 @@ component {
 
 		// TODO: Enable these once I have a full listing of content
 		// for most functions and tags.
-		route( "/function/:tag" ).to( "main.search" );
-		route( "/tag/:tag" ).to( "main.search" );
+		// route( "/function/:tag" ).to( "main.search" );
+		// route( "/tag/:tag" ).to( "main.search" );
 
 		route( "/search" ).to( "main.search" );
 		route( "/cheatsheet/:cheatsheet" ).to( "cheatsheet.view" );

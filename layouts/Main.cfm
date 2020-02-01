@@ -16,7 +16,7 @@
 	#renderView( "partials/_header" )#
 
 	<!---Container And Views --->
-	<div class="container py-10 mx-auto bg-white">#renderView()#</div>
+	<div class="container py-10 mx-auto">#renderView()#</div>
 
 	#renderView( "partials/_footer" )#
 </body>

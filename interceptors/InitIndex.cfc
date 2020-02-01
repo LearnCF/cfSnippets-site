@@ -5,6 +5,7 @@ component {
 	 */
 	void function afterConfigurationLoad( event, interceptData ){
 		getESClient().deleteIndex( "snippets" );
+		getESClient().deleteIndex( "cheatsheets" );
 		if ( !getESClient().indexExists( "snippets" ) ){
 			createSnippetIndex();
 		}
@@ -64,7 +65,6 @@ component {
 				"_doc" = {
 					"_all" = { "enabled" = false },
 					"properties" = {
-						"slug" = { "type" = "keyword" },
 						"title" = { "type" = "text" },
 						"description" = { "type" = "text" }
 					}
@@ -97,11 +97,10 @@ component {
 			if ( fileExists( filepath ) ){
 				var data = fileRead( filepath );
 				if ( isJSON( data ) ){
-					var esData = deSerializeJSON( data );
-					esData[ "slug" ] = replace(filename, ".json", "");
 					saveNewESDocument(
-						data = esData,
-						index = index
+						data = deSerializeJSON( data ),
+						index = index,
+						id = replace(filename, ".json", "")
 					);
 				}
 			}
@@ -121,15 +120,19 @@ component {
 	private function saveNewESDocument(
 		required struct data,
 		string index = "snippets",
-		string type = "_doc"
+		string type = "_doc",
+		string id = ""
 	){
-		var result = getDocument()
+		var document = getDocument()
 		.new(
 			index = arguments.index,
 			type = arguments.type,
 			properties = arguments.data
-		)
-		.save();
+		);
+		if ( arguments.id > "" ){
+			document = document.setId( arguments.id );
+		}
+		document.save();
 	}
 
 	Client function getESClient() provider="Client@cbElasticsearch"{}
