@@ -10,6 +10,21 @@ component extends="BaseSearch" {
   property name="type" default="_doc";
 
 	/**
+	 * Search for snippets by slug.
+	 * 
+	 * @returns this component containing the "normalized" result - e.g. call getHits(), getPaging(), etc.
+	 */
+	public component function getBySlug( required string slug ){
+		var search = getSearchBuilder().new(
+				index = variables.index,
+				type = variables.type
+			)
+			.term( "_id", arguments.slug )
+			.execute();
+		return normalizeSearchResult( search );
+	}
+
+	/**
 	 * Search for snippets by cheatsheet.
 	 * 
 	 * @returns this component containing the "normalized" result - e.g. call getHits(), getPaging(), etc.

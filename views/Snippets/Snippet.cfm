@@ -1,7 +1,13 @@
+<cfif structKeyExists( prc, "snippet" ) && !structKeyExists( variables, "snippet" )>
+	<cfset variables.snippet = prc.snippet />
+</cfif>
+
 <cfoutput>
 	<article class="mb-10 bg-white border-2 border-purple-900 rounded-lg shadow-lg snippet">
 			<div class="px-6 py-8">
-				<h2 class="text-2xl font-bold tracking-wide text-gray-900">#encodeForHTML( snippet.title )#</h2>
+				<h2 class="text-2xl font-bold tracking-wide text-gray-900">
+					<a href="#event.buildLink( 'snippets.#snippet.slug#' )#">#encodeForHTML( snippet.title )#</a>
+				</h2>
 				<cfif structKeyExists( snippet, "description" ) && Len( snippet.description ) GT 0>
 					<div class="mt-4 text-gray-700">#snippet.description#</div>
 				</cfif>

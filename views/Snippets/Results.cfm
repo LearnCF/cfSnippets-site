@@ -5,7 +5,7 @@
 		)#
 	<cfelse>
 		#renderView(
-			view = "Main/Snippet",
+			view = "Snippets/Snippet",
 			collection = prc.snippets
 		)#
 

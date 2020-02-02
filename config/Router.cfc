@@ -13,8 +13,9 @@ component {
 		// route( "/function/:tag" ).to( "main.search" );
 		// route( "/tag/:tag" ).to( "main.search" );
 
-		route( "/search" ).to( "main.search" );
-		route( "/cheatsheet/:cheatsheet" ).to( "cheatsheet.view" );
+		route( "/search" ).to( "snippets.search" );
+		route( "/snippets/:slug" ).to( "snippets.view" );
+		route( "/cheatsheet/:slug" ).to( "cheatsheet.view" );
 
 		// Routing by Convention
 		route( "/:handler/:action?" ).end();

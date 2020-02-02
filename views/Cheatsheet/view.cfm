@@ -5,7 +5,7 @@
 		)#
 	<cfelse>
 		#renderView(
-			view = "Main/Results"
+			view = "Snippets/Results"
 		)#
 	</cfif>
 </cfoutput>

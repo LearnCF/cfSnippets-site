@@ -7,7 +7,7 @@ component extends="BaseHandler"{
 	 * 
 	 * Or even by cheatsheet! /category/testbox
 	 */
-	function search( event, rc, prc ) cache="true" cacheTimeout="30" {
+	function search( event, rc, prc ) cache="true" {
 		event.paramValue( "tag", "" );
 		event.paramValue( "q", "" );
 		event.paramValue( "cheatsheet", "" );
@@ -31,13 +31,33 @@ component extends="BaseHandler"{
 			} else if ( rc.q > "" ) {
 				search = search.getByQuery( rc.q );
 			} else {
-				// query for just script stuff
-				search = search.getByQuery( "script" );
+				// query for basically anything
+				search = search.getByQuery( "if" );
 			}
 
 			prc.pagination = search.getPaging();
 			prc.snippets = search.getHits();
 
-			event.setView( "Main/Results" );
+			event.setView( "Snippets/Results" );
+		}
+
+		/**
+		 * View an individual snippet based on its "slug".
+		 * e.g: /snippets/:slug
+		 */
+		function view( event, rc, prc ) cache="true" {
+			var search  = getInstance( "Snippets" )
+			.setMaxRows( 1 )
+			.getBySlug( event.getValue( "slug", "" ) );
+
+			if ( !search.getHits().len() ){
+				return renderPageNotFound(
+					argumentCollection = arguments
+				);
+			}
+			prc.snippet = search.getHits().first();
+
+			// snippet becomes a decent full-blown "page"
+			prc.page = prc.snippet;
 		}
 }

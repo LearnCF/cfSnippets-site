@@ -39,6 +39,7 @@ component {
 				"_doc" = {
 					"_all" = { "enabled" = false },
 					"properties" = {
+						"slug" = { "type" = "keyword" },
 						"title" = { "type" = "text" },
 						"cheatsheets" = { "type" = "keyword" },
 						"description" = { "type" = "text" },
@@ -66,7 +67,8 @@ component {
 					"_all" = { "enabled" = false },
 					"properties" = {
 						"title" = { "type" = "text" },
-						"description" = { "type" = "text" }
+						"description" = { "type" = "text" },
+						"slug" = { "type" = "keyword" }
 					}
 				}
 			}
@@ -95,12 +97,14 @@ component {
 		files.each( function( filename ) {
 			var filepath = expandPath( path ) & filename;
 			if ( fileExists( filepath ) ){
-				var data = fileRead( filepath );
-				if ( isJSON( data ) ){
+				var json = fileRead( filepath );
+				if ( isJSON( json ) ){
+					var data = deSerializeJSON( json );
+					data["slug"] = replace(filename, ".json", "");
 					saveNewESDocument(
-						data = deSerializeJSON( data ),
+						data = data,
 						index = index,
-						id = replace(filename, ".json", "")
+						id = data.slug
 					);
 				}
 			}
