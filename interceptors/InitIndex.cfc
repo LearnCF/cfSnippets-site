@@ -4,28 +4,36 @@ component {
 	 * After the config has loaded on first startup or reinit, I think.
 	 */
 	void function afterConfigurationLoad( event, interceptData ){
-		getESClient().deleteIndex( "snippets" );
-		getESClient().deleteIndex( "cheatsheets" );
-		if ( !getESClient().indexExists( "snippets" ) ){
-			createSnippetIndex();
-		}
-		if ( !getESClient().indexExists( "cheatsheets" ) ){
-			createCheatSheetIndex();
-		}
-		// TODO: Make a "reloadData=1" URL parameter so this expensive ES indexing doesn't happen on reinit all the time.
-		if ( true ){
-			var snippetPath = getSetting( "contentPath" ) & "/snippets/";
-			populateIndex(
-				files = getDataFiles( path = snippetPath ),
-				path = snippetPath,
-				index = "snippets"
-			);
-			var cheatsheetPath = getSetting( "contentPath" ) & "/cheatsheets/";
-			populateIndex(
-				files = getDataFiles( path = cheatsheetPath ),
-				path = cheatsheetPath,
-				index = "cheatsheets"
-			);
+		try {
+			getESClient().deleteIndex( "snippets" );
+			getESClient().deleteIndex( "cheatsheets" );
+			if ( !getESClient().indexExists( "snippets" ) ){
+				createSnippetIndex();
+			}
+			if ( !getESClient().indexExists( "cheatsheets" ) ){
+				createCheatSheetIndex();
+			}
+			// TODO: Make a "reloadData=1" URL parameter so this expensive ES indexing doesn't happen on reinit all the time.
+			if ( true ){
+				var snippetPath = getSetting( "contentPath" ) & "/snippets/";
+				populateIndex(
+					files = getDataFiles( path = snippetPath ),
+					path = snippetPath,
+					index = "snippets"
+				);
+				var cheatsheetPath = getSetting( "contentPath" ) & "/cheatsheets/";
+				populateIndex(
+					files = getDataFiles( path = cheatsheetPath ),
+					path = cheatsheetPath,
+					index = "cheatsheets"
+				);
+			}
+		} catch( io.searchbox.client.config.exception.CouldNotConnectException exception ){
+			writeOutput( "Unable to connect to ElasticSearch." );
+			abort;
+		} catch( cbElasticsearch.JestClient.IndexCreationException exception ){
+			writeOutput( "Unable to connect to ElasticSearch." );
+			abort;
 		}
 	}
 

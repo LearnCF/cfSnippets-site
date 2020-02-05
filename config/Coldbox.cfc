@@ -28,27 +28,27 @@ component {
 		moduleSettings = {
 			cbElasticsearch = {
 				// The native client Wirebox DSL for the transport client
-        client = "JestClient@cbElasticsearch",
-        // The default hosts - an array of host connections
-        //  - REST-based clients (e.g. JEST):  round robin connections will be used
-        //  - Socket-based clients (e.g. Transport):  cluster-aware routing used
+				client = "JestClient@cbElasticsearch",
+				// The default hosts - an array of host connections
+				//  - REST-based clients (e.g. JEST):  round robin connections will be used
+				//  - Socket-based clients (e.g. Transport):  cluster-aware routing used
 				hosts = [{
 					serverProtocol: "http",
 					serverName: getSystemSetting( "ES_HOST", "127.0.0.1" ),
 					serverPort: getSystemSetting( "ES_PORT", "9200" )
 				}],
 				// The default index
-        defaultIndex = "snippets",
-        // The default number of shards to use when creating an index
-        defaultIndexShards = 3,
-        // The default number of index replicas to create
-        defaultIndexReplicas = 0,
-        // Whether to use separate threads for client transactions
-        multiThreaded = true,
-        // The maximum number of connections allowed per route ( e.g. search URI endpoint )
-        maxConnectionsPerRoute = 10,
-        // The maxium number of connectsion, in total for all Elasticsearch requests
-        maxConnections = 100
+				defaultIndex = "snippets",
+				// The default number of shards to use when creating an index
+				defaultIndexShards = 3,
+				// The default number of index replicas to create
+				defaultIndexReplicas = 0,
+				// Whether to use separate threads for client transactions
+				multiThreaded = true,
+				// The maximum number of connections allowed per route ( e.g. search URI endpoint )
+				maxConnectionsPerRoute = 10,
+				// The maxium number of connectsion, in total for all Elasticsearch requests
+				maxConnections = 100
 			}
 		}
 
