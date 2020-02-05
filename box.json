@@ -9,14 +9,14 @@
         "coldbox":"coldbox/",
         "cfSnippets":"cfSnippets/"
     },
-    "location":"",
+    "location":"https://github.com/LearnCF/cfsnippets-site/archive/v0.1.0.zip",
     "name":"cfsnippets-site",
     "scripts":{
         "postVersion":"package set location='https://github.com/LearnCF/`package show name`/archive/v`package version`.zip'",
         "onRelease":"!git push --follow-tags"
     },
     "slug":"cfsnippets-site",
-    "version":"0.0.1",
+    "version":"0.1.0",
     "ignore":[
         "LICENSE.txt"
     ],
