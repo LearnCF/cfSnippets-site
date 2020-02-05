@@ -7,8 +7,7 @@
 	<meta name="description" content="#prc.meta.description#">
 	<meta name="author" content="#prc.meta.author#">
 
-	#renderView( "Utilities/scripts" )#
-	#renderView( "Utilities/stylesheets" )#
+	#renderView( "Utilities/head" )#
 </head>
 <body>
 

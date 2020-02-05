@@ -1,2 +1,0 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/shades-of-purple.min.css" integrity="sha256-nBE2Mu8U6MyA2tij8w9c1eBbwBkVlY0rqZQrtdTKePA=" crossorigin="anonymous" />
-<link href="/resources/dist/css/app.css" rel="stylesheet">
