@@ -47,7 +47,7 @@ component {
 				multiThreaded = true,
 				// The maximum number of connections allowed per route ( e.g. search URI endpoint )
 				maxConnectionsPerRoute = 10,
-				// The maxium number of connectsion, in total for all Elasticsearch requests
+				// The maxium number of connections, in total for all Elasticsearch requests
 				maxConnections = 100
 			}
 		}

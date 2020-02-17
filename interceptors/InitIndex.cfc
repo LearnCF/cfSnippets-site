@@ -5,16 +5,21 @@ component {
 	 */
 	void function afterConfigurationLoad( event, interceptData ){
 		try {
-			getESClient().deleteIndex( "snippets" );
-			getESClient().deleteIndex( "cheatsheets" );
+			var recreateIndex = true;
+
+			if( recreateIndex ){
+				getESClient().deleteIndex( "snippets" );
+				getESClient().deleteIndex( "cheatsheets" );
+			}
+			
 			if ( !getESClient().indexExists( "snippets" ) ){
 				createSnippetIndex();
 			}
 			if ( !getESClient().indexExists( "cheatsheets" ) ){
 				createCheatSheetIndex();
 			}
-			// TODO: Make a "reloadData=1" URL parameter so this expensive ES indexing doesn't happen on reinit all the time.
-			if ( true ){
+
+			if ( recreateIndex ){
 				var snippetPath = getSetting( "contentPath" ) & "/snippets/";
 				populateIndex(
 					files = getDataFiles( path = snippetPath ),
@@ -32,7 +37,7 @@ component {
 			writeOutput( "Unable to connect to ElasticSearch." );
 			abort;
 		} catch( cbElasticsearch.JestClient.IndexCreationException exception ){
-			writeOutput( "Unable to connect to ElasticSearch." );
+			writeOutput( "Unable to create index, is ElasticSearch up?" );
 			abort;
 		}
 	}
