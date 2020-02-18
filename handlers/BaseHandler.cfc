@@ -2,6 +2,9 @@
  * Helper methods and interception stuff for API route handlers.
  */
 component {
+
+	property name="messagebox" inject="messagebox@cbmessagebox";
+
 	function preHandler( event, rc, prc ){
 		prc.meta = {
 			title : "CF Snippets",

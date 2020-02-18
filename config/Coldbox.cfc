@@ -22,7 +22,10 @@ component {
 			contentPath : expandPath( getSystemSetting("CONTENT_PATH", "/cfSnippets/data/en") ),
 			meta_author : getSystemSetting( "META_AUTHOR", "Michael Born" ),
 			meta_title : getSystemSetting( "META_TITLE", "CFSnippets" ),
-			meta_description : getSystemSetting( "META_DESCRIPTION", "Examples of modern CFML source code" )
+			meta_description : getSystemSetting( "META_DESCRIPTION", "Examples of modern CFML source code" ),
+
+			// newsletter secrets for mailerlite api
+			subscribeToGroupID: getSystemSetting( "MAILERLITE_SUBSCRIBE_GROUP_ID" )
 		};
 
 		moduleSettings = {
@@ -49,8 +52,11 @@ component {
 				maxConnectionsPerRoute = 10,
 				// The maxium number of connections, in total for all Elasticsearch requests
 				maxConnections = 100
+			},
+			cfmailerlite: {
+				apiKey: getSystemSetting( "MAILERLITE_API_KEY" )
 			}
-		}
+		};
 
 
 		// register the interceptor which runs on app start/reinit

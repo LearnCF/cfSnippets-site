@@ -15,7 +15,12 @@
 	#renderView( "partials/_header" )#
 
 	<!---Container And Views --->
-	<div>#renderView()#</div>
+	<div>
+		<div class="container mx-auto">
+			#getInstance( "messagebox@cbmessagebox" ).renderIt()#
+		</div>
+		#renderView()#
+	</div>
 
 	#renderView( "partials/_footer" )#
 </body>

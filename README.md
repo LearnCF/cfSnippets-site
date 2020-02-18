@@ -12,7 +12,7 @@ This website runs using the following stack:
 
 1. Clone this repo to your local machine: `git clone learncf/cfsnippets-site`
 2. Install project dependencies: `box install`
-3. Start up an ElasticSearch instance with Docker: `docker run -d -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.5.1`
+3. Start up an ElasticSearch instance with Docker: `docker run -d -p 9202:9200 -p 9303:9300 -e "discovery.type=single-node" --name cfsnippets_es elasticsearch:7.5.1`
 4. Start the application: `box server start`
 
 ## The Good News
