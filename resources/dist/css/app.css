@@ -198,6 +198,11 @@ input { /* 1 */
  * 2. Remove the padding in IE 10.
  */
 
+[type="checkbox"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
@@ -466,14 +471,6 @@ img {
   background-color: #edf2f7;
 }
 
-.bg-gray-800 {
-  background-color: #2d3748;
-}
-
-.bg-gray-900 {
-  background-color: #1a202c;
-}
-
 .bg-red-100 {
   background-color: #fff5f5;
 }
@@ -492,10 +489,6 @@ img {
 
 .bg-blue-800 {
   background-color: #2c5282;
-}
-
-.bg-purple-900 {
-  background-color: #44337a;
 }
 
 .hover\:bg-green-500:hover {
@@ -633,6 +626,10 @@ img {
 
 .mr-4 {
   margin-right: 1rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
 }
 
 .mb-10 {
@@ -816,6 +813,10 @@ img {
 
 .w-6 {
   width: 1.5rem;
+}
+
+.w-64 {
+  width: 16rem;
 }
 
 .w-full {
