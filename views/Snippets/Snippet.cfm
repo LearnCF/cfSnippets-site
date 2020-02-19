@@ -12,7 +12,18 @@
 				<div class="mt-4 text-gray-700">#snippet.description#</div>
 			</cfif>
 
-			#renderView( view = "Snippets/Source", args = { "source": snippet.snippet } )#
+			<cfif isArray( snippet.snippet )>
+				#renderView(
+					view = "Snippets/source",
+					collection = snippet.snippet,
+					collectionAs = "source"
+				)#
+			<cfelse>
+				#renderView(
+					view = "Snippets/source",
+					args = { "source": snippet.snippet }
+				)#
+			</cfif>
 
 			<!---
 				Hide tag list for the moment.

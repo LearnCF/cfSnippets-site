@@ -10,7 +10,7 @@
             <cfset lang = "html" />
         </cfif>
         <cfif source.keyExists( "description" )>
-            <p class="mb-4">#row.description#</p>
+            <p class="mb-4">#source.description#</p>
         </cfif>
         <pre class="h1js h1js-#lang#"><code class="p-6">#source.source#</code></pre>
     </div>

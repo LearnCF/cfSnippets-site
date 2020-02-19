@@ -24,4 +24,23 @@ component extends="BaseSearch"{
 		return normalizeSearchResult( search );
 	}
 
+	/**
+	 * Retrieve all cheatsheets from the index
+	 * 
+	 * @returns this component containing the "normalized" result - e.g. call getHits(), getPaging(), etc.
+	 */
+	public component function getAll( numeric size = 10 ){
+		var search = getSearchBuilder().new(
+				index = variables.index,
+				type = variables.type,
+				properties = {
+					"query" = {
+						"match_all" = {}
+					}
+				}
+			)
+			.execute();
+		return normalizeSearchResult( search );
+	}
+
 }

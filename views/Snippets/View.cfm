@@ -12,6 +12,4 @@
 			</cfif>
 		</article>
 	</div>
-
-	#renderView( "partials/_signup" )#
 </cfoutput>

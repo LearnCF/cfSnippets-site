@@ -12,7 +12,7 @@ component {
 			// For production, don't reload handler changes for each request.
 			handlersIndexAutoReload : false,
 			// The page to render if no other event is found. (e.g. Homepage!)
-			defaultEvent : "Snippets.search"
+			defaultEvent : "Main.index"
 		};
 		environments = {
 			development : "127.*,local.*",
