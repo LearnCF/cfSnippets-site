@@ -8,4 +8,5 @@
 			view = "Snippets/Results"
 		)#
 	</cfif>
+	#renderView( "partials/_signup" )#
 </cfoutput>
