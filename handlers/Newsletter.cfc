@@ -10,29 +10,36 @@ component extends="BaseHandler"{
      */
     function index( event, rc, prc ){}
 
+
+    function unsubscribe( event, rc, prc ){
+        prc.page = {
+            title: "Unsubscribe",
+            subtitle: "I'm sorry to see you go, but it's ok. You'll be back!"
+        };
+    }
+
     /**
      * Newsletter unsubscribe route
      * Handles both unsubscribe form and an "api" to unsubscribe the user.
      */
-    function unsubscribe( event, rc, prc ){
-        if ( rc.keyExists( "submit" ) ){
-            // validate email exists!
-            if( !rc.keyExists( "email" ) || rc.email == "" ){
-                messagebox.error( "Email is required." );
-            }
-            // validate nonce matches
-            if( !rc.keyExists( "nonce" ) || rc.nonce != variables.myNonce ){
-                messagebox.error( "Sorry, form submission does not match security nonce." )
-            }
-            if ( messagebox.isEmptyMessage() ){
-                getInstance( "cfmailerlite@cfmailerlite" ).addSubscriberToGroup(
-                    id = variables.subscribeToGroupID,
-                    body = {
-                        "email" : rc.email
-                    }
-                );
-            }
+    function unsubscribeUser( event, rc, prc ) allowedMethods="POST"{
+        // validate email exists!
+        if( !rc.keyExists( "email" ) || rc.email == "" ){
+            messagebox.error( "Email is required." );
         }
+        // validate nonce matches
+        if( !rc.keyExists( "nonce" ) || rc.nonce != variables.myNonce ){
+            messagebox.error( "Sorry, form submission does not match security nonce." )
+        }
+        if ( messagebox.isEmptyMessage() ){
+            getInstance( "cfmailerlite@cfmailerlite" ).addSubscriberToGroup(
+                id = variables.subscribeToGroupID,
+                body = {
+                    "email" : rc.email
+                }
+            );
+        }
+        relocate( 'newsletter.unsubscribe' );
     }
 
     /**
@@ -49,7 +56,7 @@ component extends="BaseHandler"{
      * Newsletter subscribe POST action
      * Send the user's provided email to mailerlite and add it to a specified group.
      */
-    function subscribeUserToNewsletter( event, rc, prc ) allowedMethods="POST"{
+    function subscribeUser( event, rc, prc ) allowedMethods="POST"{
         // validate email exists!
         if( !rc.keyExists( "email" ) || rc.email == "" ){
             messagebox.error( "Email is required." );

@@ -1,3 +1,8 @@
+<cfscript>
+	param prc.meta.title = "CFSnippets";
+	param prc.meta.description = "CFSnippets";
+	param prc.meta.author = "Michael Born";
+</cfscript>
 <cfoutput>
 <!DOCTYPE html>
 <html lang="en">

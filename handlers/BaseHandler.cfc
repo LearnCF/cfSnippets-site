@@ -20,9 +20,9 @@ component {
 	}
 
 	function renderPageNotFound( event, rc, prc ){
-		// prc.meta.title = "Page Not Found";
-		// prc.page.title = "Page Not Found";
-		// prc.page.subtitle = "So sorry.";
+		prc.meta.title = "Page Not Found";
+		prc.page.title = "Page Not Found";
+		prc.page.subtitle = "So sorry.";
 		event.setView( "Utilities/FourOhFour" );
 	}
 
