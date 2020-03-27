@@ -1,7 +1,7 @@
 component {
 
 	/**
-	 * After the config has loaded on first startup or reinit, I think.
+	 * Initialize the ElasticSearch index on app load/reinit
 	 */
 	void function afterConfigurationLoad( event, interceptData ){
 		try {
