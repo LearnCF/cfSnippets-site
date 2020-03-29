@@ -4,6 +4,7 @@
 component extends="BaseHandler"{
 
     property name="subscribeToGroupID" inject="coldbox:setting:subscribeToGroupID";
+    property name="cfmailerlite" inject="cfmailerlite@cfmailerlite";
 
     /**
      * Standalone newsletter subscription page
@@ -14,7 +15,7 @@ component extends="BaseHandler"{
     function unsubscribe( event, rc, prc ){
         prc.page = {
             title: "Unsubscribe",
-            subtitle: "I'm sorry to see you go, but it's ok. You'll be back!"
+            subtitle: "I'm sorry to see you go, but it's ok."
         };
     }
 
@@ -32,7 +33,7 @@ component extends="BaseHandler"{
             messagebox.error( "Sorry, form submission does not match security nonce." )
         }
         if ( messagebox.isEmptyMessage() ){
-            getInstance( "cfmailerlite@cfmailerlite" ).addSubscriberToGroup(
+            cfmailerlite.addSubscriberToGroup(
                 id = variables.subscribeToGroupID,
                 body = {
                     "email" : rc.email
@@ -48,7 +49,7 @@ component extends="BaseHandler"{
     function subscribe( event, rc, prc ){
         prc.page = {
             title: "Subscribe",
-            subtitle: "Receive occasional emails with new snippets and site updates. No spam, I promise."
+            subtitle: "Receive occasional emails with new snippets and site updates.<br>No spam, I promise."
         };
     }
 
@@ -62,7 +63,7 @@ component extends="BaseHandler"{
             messagebox.error( "Email is required." );
         }
         if ( messagebox.isEmptyMessage() ){
-            var response = getInstance( "cfmailerlite@cfmailerlite" ).addSubscriberToGroup(
+            var response = cfmailerlite.addSubscriberToGroup(
                 id = variables.subscribeToGroupID,
                 body = {
                     "email" : rc.email

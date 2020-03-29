@@ -8,5 +8,7 @@
       </div>
     </div>
   </div>
-  <cfdump var="#prc.exception#" />
+  <cfif getSetting( "environment" ) == "development">
+    <cfdump var="#prc.exception#" />
+  </cfif>
 </cfoutput>
